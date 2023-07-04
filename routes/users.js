@@ -1,9 +1,13 @@
 var mongoose = require('mongoose');
 mongoose.set('strictQuery', true);
 var plm = require('passport-local-mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/mydatabase').then(function(){
-  console.log('conectedddddd.........!')
+mongoose
+.connect('mongodb+srv://e-comm:xK757yWBMw6CsyQF@cluster0.kjjbllg.mongodb.net/').then(function(){
+  console.log('Connected to db ')
+
+
 });
+
 
 var userSchema=mongoose.Schema({
   name:String,
@@ -31,7 +35,12 @@ var userSchema=mongoose.Schema({
     type:String,
     default:''
   },
+  otp:{
+    type:String,
+    default:''
+  },
   contect:String,
+  
   email:String
 });
 userSchema.plugin(plm);
